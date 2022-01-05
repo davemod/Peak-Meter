@@ -34,6 +34,8 @@ public:
     
     std::function<void()> onPeak;
     
+    void mouseDown (const MouseEvent& e) override;
+    
 private:
     
     Atomic<bool> peaking {false};

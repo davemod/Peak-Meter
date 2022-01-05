@@ -72,6 +72,12 @@ void MeterChannelComponent::paint (Graphics& g)
     g.fillRect(getLocalBounds().removeFromBottom((dezibels + 60) / 60 * getHeight()));
 }
 
+void MeterChannelComponent::mouseDown (const MouseEvent& e)
+{
+    if (auto parent = getParentComponent())
+        parent->mouseDown (e);
+}
+
 void MeterChannelComponent::timerCallback ()
 {
     if (peaking.get() && !lastPeak.get() && onPeak)
